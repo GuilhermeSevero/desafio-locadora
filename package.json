@@ -1,0 +1,37 @@
+{
+  "name": "desafio-locadora",
+  "version": "1.0.0",
+  "description": "API - Sistema Locadora de Filmes",
+  "main": "src/index.js",
+  "scripts": {
+    "babel-node": "babel-node src/index.js",
+    "dev": "nodemon --exec npm run babel-node",
+    "build": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeSevero/desafio-locadora.git"
+  },
+  "keywords": [
+    "api",
+    "node",
+    "locadora"
+  ],
+  "author": "Guilherme Severo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuilhermeSevero/desafio-locadora/issues"
+  },
+  "homepage": "https://github.com/GuilhermeSevero/desafio-locadora#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "nodemon": "^2.0.2"
+  }
+}

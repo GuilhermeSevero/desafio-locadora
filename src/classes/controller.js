@@ -1,5 +1,5 @@
 import HttpStatus from 'http-status'
-import { defaultResponse, errorResponse } from './Responses'
+import { defaultResponse, errorResponse } from './responses'
 
 class ControllerBase {
     constructor(Model) {

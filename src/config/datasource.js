@@ -15,6 +15,29 @@ const loadModels = (sequelize) => {
     return models
 }
 
+const setForeignKeys = (models) => {
+
+    models.movie.belongsToMany(models.user, {
+        through: {
+            model: models.rent,
+            unique: false
+        },
+        foreignKey: 'movieId',
+        constraints: false
+    })
+
+    models.user.belongsToMany(models.movie, {
+        through: {
+            model: models.rent,
+            unique: false
+        },
+        foreignKey: 'userId',
+        constraints: false
+    })
+
+    return models
+}
+
 export default (app) => {
     if (!database) {
         const config = app.config
@@ -30,7 +53,7 @@ export default (app) => {
             models: []
         }
 
-        database.models = loadModels(sequelize)
+        database.models = setForeignKeys(loadModels(sequelize))
 
         sequelize.sync().done(() => database)
     }

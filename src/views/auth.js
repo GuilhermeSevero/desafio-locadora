@@ -13,7 +13,7 @@ export default app => {
             const password = req.body.password
             userController.auth(email, password)
                 .then(({ data }) => {
-                    const token = jwt.sign({ id: data.id }, config.jwtSecret, { expiresIn: 300 })
+                    const token = jwt.sign({ id: data.id }, config.jwtSecret, { expiresIn: '1m' })
                     res.json({ auth: true, token })
                 })
                 .catch(error => {

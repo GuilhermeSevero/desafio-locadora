@@ -1,5 +1,6 @@
 export default (app, controller, route) => {
     app.route(`/${route}`)
+        .all(app.auth)
         .get((req, res) => {
             controller.getAll(req.query)
                 .then(result => {
@@ -16,6 +17,7 @@ export default (app, controller, route) => {
                 })
         })
     app.route(`/${route}/:id`)
+        .all(app.auth)
         .get((req, res) => {
             controller.getById(req.params)
                 .then(result => {

@@ -34,9 +34,7 @@ CREATE TABLE `rents` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  KEY `movie_id` (`movie_id`),
-  CONSTRAINT `rents_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `rents_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `movie_id` (`movie_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `rents` (`id`, `user_id`, `movie_id`, `date`, `return`, `created_at`, `updated_at`) VALUES

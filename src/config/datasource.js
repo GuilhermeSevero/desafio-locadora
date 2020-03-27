@@ -23,7 +23,7 @@ const setForeignKeys = (models) => {
             unique: false
         },
         foreignKey: 'movieId',
-        constraints: true,
+        constraints: false,
     })
 
     models.user.belongsToMany(models.movie, {
@@ -32,7 +32,7 @@ const setForeignKeys = (models) => {
             unique: false
         },
         foreignKey: 'userId',
-        constraints: true
+        constraints: false
     })
 
     return models

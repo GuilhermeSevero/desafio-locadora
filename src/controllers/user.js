@@ -1,8 +1,21 @@
-import ControllerBase from '../classes/controller'
+import crypto from 'crypto'
 import { defaultResponse, errorResponse } from '../classes/responses'
+
+import ControllerBase from '../classes/controller'
 
 
 class UserController extends ControllerBase {
+    auth(email, password) {
+        return this.model.findOne({ where: { email } })
+            .then(user => {
+                if(user.get('password') === crypto.createHash('md5').update(password).digest("hex")) {
+                    return defaultResponse(user)
+                }
+                return errorResponse('Usuário não encontrado!')
+            })
+            .catch(error => errorResponse(error.message))
+    }
+
     getByEmail(email) {
         return this.Aplicativos.findOne({ where: { email } })
             .then(result => defaultResponse(result))

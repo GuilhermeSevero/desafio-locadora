@@ -3,7 +3,8 @@ const {
     DB_NAME,
     DB_USER,
     DB_PASS,
-    DB_HOST
+    DB_HOST,
+    SECRET
 } = process.env
 
 export default {
@@ -17,6 +18,6 @@ export default {
             underscored: true
         }
     },
-    jwtSecret: 'API-Locadora',
+    jwtSecret: SECRET,
     jwtSession: { session: true }
 }

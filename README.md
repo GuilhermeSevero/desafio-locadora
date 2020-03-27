@@ -46,16 +46,13 @@ $ npm run dev
 
 >- **GET** /filmes
 >- **GET** /filmes/:id
+>- **POST** /filmes/:id/alugar
 >- **POST** /filmes
 >- **PUT** /filmes/:id
 >- **DELETE** /filmes/:id
->- **POST** /filmes/:id/alugar
 
 >- **GET** /alugueis
 >- **GET** /alugueis/:id
->- **POST** /alugueis
->- **PUT** /alugueis/:id
->- **DELETE** /alugueis/:id
 >- **PATCH** /alugueis/:id/devolver
 
 ---
@@ -117,6 +114,9 @@ $ npm run dev
 | name           | nome do usuario                                |
 | email          | email do usuario                               |
 
+```http
+GET http://127.0.0.1/usuario?name=usuario1&email=usuario1@email.com.br
+```
 
 **Response:**
 ```json
@@ -238,6 +238,10 @@ $ npm run dev
 | title          | Título do Filme                                |
 | director       | Nome do Diretor                                |
 
+
+```http
+GET http://127.0.0.1/filmes?title=Lord of the Rings
+```
 
 **Response:**
 ```json
@@ -384,6 +388,9 @@ $ npm run dev
 | userId         | ID do Usuário que alugou                       |
 | movieId        | ID do Filme Alugado                            |
 
+```http
+GET http://127.0.0.1/alugueis?userId=2&movieId=1
+```
 
 **Response:**
 ```json

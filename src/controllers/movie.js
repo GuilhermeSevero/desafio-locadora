@@ -9,6 +9,9 @@ class MovieController extends ControllerBase {
     rent(movieId, userId) {
         return this.model.findByPk(movieId)
             .then(movie => {
+                if (!movie) {
+                    throw new Error('Filme não encontrado!')
+                }
                 if (movie.get('stock') < 1) {
                     throw new Error('Filme não possui estoque suficiente!')
                 }

@@ -4,10 +4,10 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      - MYSQL_DATABASE=locadora
-      - MYSQL_USER=locadora
-      - MYSQL_PASSWORD=locadora
-      - MYSQL_ROOT_PASSWORD=196320
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
     ports:
       - '3306:3306'
     expose:

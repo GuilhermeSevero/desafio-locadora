@@ -2,9 +2,8 @@ import HttpStatus from 'http-status'
 import { defaultResponse, errorResponse } from './responses'
 
 class ControllerBase {
-    constructor(models, model) {
-        this.models = models
-        this.model = models[model]
+    constructor(model) {
+        this.model = model
     }
 
     getAll(where = {}) {

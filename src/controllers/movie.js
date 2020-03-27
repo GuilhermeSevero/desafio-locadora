@@ -15,6 +15,8 @@ class MovieController extends ControllerBase {
                 if (movie.get('stock') < 1) {
                     throw new Error('Filme não possui estoque suficiente!')
                 }
+                movie.decrement('stock')
+
                 const rent = new RentController(this.model.sequelize.models.rent)
                 return rent.create({ userId, movieId, date: Date.now()})
             })

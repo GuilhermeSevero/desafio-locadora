@@ -1,5 +1,9 @@
+import HttpStatus from 'http-status'
+
 import ControllerBase from '../classes/controller'
+
 import { defaultResponse, errorResponse } from '../classes/responses'
+
 
 
 class RentController extends ControllerBase {
@@ -12,7 +16,15 @@ class RentController extends ControllerBase {
                 if (rent.get('return')) {
                     throw new Error('Aluguel já devolvido!')
                 }
-                return this.update({ return: Date.now() }, { id })
+                let movies = this.model.sequelize.models.movie
+                movies.findByPk(rent.get('movieId'))
+                    .then(movie => {
+                        movie.increment('stock')
+
+                        rent.update({ return: Date.now() })
+
+                        return defaultResponse('Filme devolvido com sucesso!', HttpStatus.UNPROCESSABLE_ENTITY)
+                    })
             })
             .catch(error => errorResponse(error.message))
     }

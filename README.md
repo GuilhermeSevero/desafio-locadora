@@ -26,11 +26,15 @@ $ cd desafio-locadora
 # Instala as dependências do projeto
 $ npm install
 
+# Execução do Banco (opcional) - Necessário Docker e Docker-Compose
+$ docker-compose up -d
+
 # Script para alimentar o banco encontra-se em: ./banco.sql
 
 # Executa serviço da API
 $ npm run dev 
 ```
+
 ---
 
 # Endpoints

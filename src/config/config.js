@@ -1,3 +1,5 @@
+import dotEnv from 'dotenv-safe'
+dotEnv.config()
 
 const {
     DB_NAME,

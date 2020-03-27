@@ -1,6 +1,3 @@
-import dotEnv from 'dotenv-safe'
-dotEnv.config()
-
 import express from 'express'
 import bodyParser from 'body-parser'
 import config from './config/config'
